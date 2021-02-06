@@ -1,0 +1,18 @@
+schema-version: 1.0
+
+var:
+  version: 6.8.2
+  jdkVersion: 8
+
+pack:
+  origin: aws-jdk
+  var:
+    version: "{% jdkVersion %}"
+
+provision:
+  - url: https://services.gradle.org/distributions/gradle-6.8.2-bin.zip
+  - systempath: "{% installDir %}/gradle-{% version %}/bin"
+
+
+command:
+  gradle: gradle {{ .args }}
